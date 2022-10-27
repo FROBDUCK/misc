@@ -1,13 +1,18 @@
 import sqlite3
 
-banco = sqlite3.connect('primeiro_banco.db')
+conn = sqlite3.connect("todo-app.db")
 
-cursor = banco.cursor()
+cursor = conn.cursor()
 
-#cursor.execute("CREATE TABLE pessoas (nome text,idade integer, emal text)")
+#conn.execute("CREATE TABLE ponto (titulo_da_coleta text, ponto_da_coleta text, data integer, nome,descrição text, status text)")
+    
+conn.execute("INSERT into ponto ('aaaaaaaa','Ponto',1,'victor','do lado da casa de fulano' ,'ativo')")
 
-#cursor.execute("INSERT INTO pessoas VALUES('joão',50,'joão@gmail.com')")
+cursor.execute("DELETE from ponto (titulo_da_coleta text, ponto_da_coleta text, data integer, nome,descrição text, status text)")
 
-#banco.commit()
-cursor.execute("SELECT * FROM pessoas")
-print(cursor.fetchall()) 
+conn.commit()
+conn.close()
+
+
+cursor.execute("SELECT * FROM ponto")
+print(cursor.fetchall())
